@@ -1,0 +1,55 @@
+rez4_100.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  23 / 44
+TheNearestLineTargetsWithX:  44 / 60
+TheNearestLineTargetsWithMatrix:  17 / 49
+AntColony:  27 / 58
+
+rez3_ant_30_iteration_45.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  23 / 44
+TheNearestLineTargetsWithX:  45 / 60
+TheNearestLineTargetsWithMatrix:  16 / 49
+AntColony:  28 / 58
+
+rez5_50.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  23 / 45
+TheNearestLineTargetsWithX:  46 / 62
+TheNearestLineTargetsWithMatrix:  16 / 50
+AntColony:  27 / 59
+
+rez5_50_fero.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  23 / 45
+TheNearestLineTargetsWithX:  44 / 61
+TheNearestLineTargetsWithMatrix:  17 / 50
+AntColony:  27 / 59
+
+Alltxt1___rez4_100
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  25 / 44
+TheNearestLineTargetsWithX:  41 / 60
+TheNearestLineTargetsWithMatrix:  13 / 49
+AntColony:  32 / 63
+AntColony_Serhii:  13 / 42
+
+rez5_100.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  17 / 44
+TheNearestLineTargetsWithX:  16 / 60
+TheNearestLineTargetsWithMatrix:  8 / 49
+AntColony:  67 / 58
+
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  17 / 48
+TheNearestLineTargetsWithX:  16 / 66
+TheNearestLineTargetsWithMatrix:  8 / 51
+AntColony:  67 / 76
+
+rez6_100.txt
+Count time when better than others: time_considering/only_targets
+TheNearestNeighbour:  11 / 45
+TheNearestLineTargetsWithX:  12 / 37
+TheNearestLineTargetsWithMatrix:  5 / 24
+AntColony:  89 / 99

@@ -1,0 +1,23 @@
+----------
+6 1
+0 2
+25 20
+9
+20 26
+20 29
+16 10
+2 24
+21 28
+1 15
+TheNearestNeighbour
+460,38
+6
+TheNearestLineTargetsWithX
+352,2042065165405
+6
+TheNearestLineTargetsWithMatrix
+358,36087299584597
+6
+AntColony
+430.4621267796536
+6

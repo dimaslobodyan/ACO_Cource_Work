@@ -1,0 +1,115 @@
+----------
+6 1
+0 2
+25 20
+9
+20 26
+20 29
+16 10
+2 24
+21 28
+1 15
+TheNearestNeighbour
+460,38
+6
+TheNearestLineTargetsWithX
+430,4621267796536
+6
+TheNearestLineTargetsWithMatrix
+467,00708716848584
+6
+AntColony
+430.4621267796536
+6
+----------
+6 2
+2 18
+26 21
+6
+16 11
+5 5
+17 7
+7 13
+10 10
+18 0
+TheNearestNeighbour
+306,3132303254654
+5
+TheNearestLineTargetsWithX
+393,4779421470392
+6
+TheNearestLineTargetsWithMatrix
+403,100289459424
+5
+AntColony
+345.89684189549064
+6
+----------
+6 3
+2 12
+25 26
+9
+25 14
+17 19
+23 13
+16 9
+14 5
+19 11
+TheNearestNeighbour
+292,44000000000005
+6
+TheNearestLineTargetsWithX
+332,21322449582976
+6
+TheNearestLineTargetsWithMatrix
+325,46862649143435
+6
+AntColony
+292.454772583224
+6
+----------
+6 4
+4 28
+25 13
+6
+22 8
+4 22
+25 25
+24 10
+17 28
+16 15
+TheNearestNeighbour
+353,82
+5
+TheNearestLineTargetsWithX
+500,44860258637493
+6
+TheNearestLineTargetsWithMatrix
+429,6196936761288
+5
+AntColony
+345.1541885872503
+6
+----------
+6 5
+4 10
+26 25
+9
+5 22
+18 27
+21 16
+11 18
+24 15
+25 22
+TheNearestNeighbour
+365,3999999999999
+6
+TheNearestLineTargetsWithX
+332,7109725834316
+6
+TheNearestLineTargetsWithMatrix
+358,8976675393255
+6
+AntColony
+332.7109725834316
+6

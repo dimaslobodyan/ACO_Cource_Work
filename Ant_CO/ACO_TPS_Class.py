@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class ACO_TSP:  # класс алгоритма муравьиной колонии для решения задачи коммивояжёра
-    def __init__(self, points, func, func_dis, n_dim, distance, size_pop=10, max_iter=20, distance_matrix=None, alpha=1, beta=2, rho=0.1):
+    def __init__(self, points, func, func_dis, n_dim, distance, size_pop=10, max_iter=20, distance_matrix=None, alpha=1, beta=1, rho=0.1):
         self.func = func
         self.points = points
         self.func_dis = func_dis
@@ -31,7 +31,14 @@ class ACO_TSP:  # класс алгоритма муравьиной колон�
         y_best_iter = 2 * self.distance
         unvis_best_iter = self.n_dim
         best_gen=0
+
+        # for index in range(self.n_dim):
+        #     plt.annotate(index, (self.points[index, 0], self.points[index, 1]))
+        #     plt.plot(self.points[index, 0], self.points[index, 1], 'o-r')
+        # plt.show()
+
         for i in range(self.max_iter):
+            self.Table = np.zeros((self.size_pop, self.n_dim)).astype(int)
             # вероятность перехода без нормализации
             number_of_unvisited_target = np.zeros((self.size_pop, 1)).astype(int)
             prob_matrix = (self.Tau ** self.alpha) * (self.prob_matrix_distance) ** self.beta
@@ -73,7 +80,16 @@ class ACO_TSP:  # класс алгоритма муравьиной колон�
                 kt+=1
 
             # фиксация лучшего решения
-            index_best = number_of_unvisited_target.argmin()
+            # index_best = number_of_unvisited_target.argmin()
+            min_number_of_unvisited_target = min(number_of_unvisited_target)
+            indices = [i for i, x in enumerate(number_of_unvisited_target) if x == min_number_of_unvisited_target]
+            if len(indices) > 1:
+                sub_y = []
+                for index in indices:
+                    sub_y.append(y[index])
+                index_best = indices[sub_y.index(min(sub_y))]
+            else:
+                index_best = indices[0]
             x_best, y_best, unvis_best= self.Table[index_best, :].copy(), y[index_best].copy(), number_of_unvisited_target[index_best][0]
             self.generation_best_X.append(x_best)
             self.generation_best_Y.append(y_best)
@@ -123,10 +139,11 @@ class ACO_TSP:  # класс алгоритма муравьиной колон�
             # подсчёт феромона, который будет добавлен к ребру
             delta_tau = np.zeros((self.n_dim, self.n_dim))
             for j in range(self.size_pop):  # для каждого муравья
-                for k in range(self.n_dim - 1):  # для каждой вершины
+                for k in range(self.n_dim - 1 - number_of_unvisited_target[j][0]):  # для каждой вершины
                     # муравьи перебираются из вершины n1 в вершину n2
                     n1, n2 = self.Table[j, k], self.Table[j, k + 1]
-                    delta_tau[n1, n2] += 1 / y[j]  # нанесение феромона
+                    # delta_tau[n1, n2] += 1 / y[j]  # нанесение феромона
+                    delta_tau[n1, n2] += (self.n_dim-number_of_unvisited_target[j][0]-2)/ (self.n_dim-2)/y[j]  # нанесение феромона
                 # муравьи ползут от последней вершины обратно к первой
                 # n1, n2 = self.Table[j, self.n_dim - 1], self.Table[j, 0]
                 # delta_tau[n1, n2] += 1 / y[j]  # нанесение феромона

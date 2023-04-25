@@ -43,97 +43,103 @@ def main(size_pop=40, max_iter=20, check=0):
     # plt.rcParams['figure.figsize'] = [20, 10]
     # plt.show()
 
-    #===================== Вывод результатов на экран ===================
-    best_points_=[]
-    for i in range(len(best_x)):
-        if i!=0 and best_x[i]==0:
-            continue
-        best_points_.append(best_x[i])
-    best_points_coordinate = points_coordinate[best_points_, :]
-    for index in range(num_points):
-        plt.annotate(index, (points_coordinate[index, 0], points_coordinate[index, 1]))
-        plt.plot(points_coordinate[index, 0], points_coordinate[index, 1], 'o-r')
-    plt.plot(best_points_coordinate[:, 0],
-               best_points_coordinate[:, 1], 'o-r')
-    # изменение размера графиков
-    # plt.rcParams['figure.figsize'] = [20, 10]
-    plt.annotate("flight length: %.4f km" % best_y, (0, 0), (0, -20), xycoords='axes fraction', textcoords='offset points', va='top')
-    plt.annotate("time of execution: %.4f seconds" % time_exec, (0, 0), (150, -20), xycoords='axes fraction', textcoords='offset points', va='top')
-    plt.show()
+    # #===================== Вывод результатов на экран ===================
+    # best_points_=[]
+    # for i in range(len(best_x)):
+    #     if i!=0 and best_x[i]==0:
+    #         continue
+    #     best_points_.append(best_x[i])
+    # best_points_coordinate = points_coordinate[best_points_, :]
+    # for index in range(num_points):
+    #     plt.annotate(index, (points_coordinate[index, 0], points_coordinate[index, 1]))
+    #     plt.plot(points_coordinate[index, 0], points_coordinate[index, 1], 'o-r')
+    # plt.plot(best_points_coordinate[:, 0],
+    #            best_points_coordinate[:, 1], 'o-r')
+    # # изменение размера графиков
+    # # plt.rcParams['figure.figsize'] = [20, 10]
+    # # plt.annotate("flight length: %.4f km" % best_y, (0, 0), (0, -20), xycoords='axes fraction', textcoords='offset points', va='top')
+    # # plt.annotate("time of execution: %.4f seconds" % time_exec, (0, 0), (150, -20), xycoords='axes fraction', textcoords='offset points', va='top')
+    # plt.annotate("Best:", (0, 0), (0, -20), xycoords='axes fraction',
+    #              textcoords='offset points', va='top')
+    # plt.annotate("flight length: %.4f km" % best_y, (0, 0), (50, -20), xycoords='axes fraction',
+    #              textcoords='offset points', va='top')
+    # plt.annotate("visited num: %2d" % (best_len), (0, 0), (200, -20), xycoords='axes fraction',
+    #              textcoords='offset points', va='top')
+    # plt.show()
 
     return best_len, best_y, best_len
 
 if __name__ == "__main__":
 
-    # #читання з файлу
-    # with open("write.txt", "r") as file:
-    #     contents = file.readlines()
-    #     indices = [i for i, x in enumerate(contents) if x == "----------\n"]
-    #     # indices.pop(-1)
-    #
-    # time_to_fly = float(contents[3])
-    # speed = 10
-    # start = np.asfarray(contents[1].split(' '))
-    # points_coordinate = np.array([start])
-    # end = np.array([np.asfarray(contents[2].split(' '))])
-    # num_points = int(np.asfarray(contents[0].split(' '))[0])
-    # for i in range(num_points):
-    #     points_coordinate = np.append(points_coordinate, np.array([np.asfarray(contents[4 + i].split(' '))]),
-    #                                   axis=0)
-    # points_coordinate = np.append(points_coordinate, end, axis=0)
-    # num_points += 2
-    # distance = time_to_fly * speed
-    # # print("Координаты вершин:\n", points_coordinate, "\n")
-    # # вычисление матрицы расстояний между вершин
-    # distance_matrix = spatial.distance.cdist(points_coordinate, points_coordinate, metric='euclidean')
-    #
-    # start_time = time.time()  # сохранение времени начала выполнения
-    # x, y, target = main(30, 15, i+1)  # выполнение кода
-    # print("length: ", y, "target:", target, "\n")
-    #
-    # f = open("write_2.txt", "w")
-    # f.writelines("----------\n")
-    # f.writelines(contents[:indices[0]])
-    # f.writelines(['AntColony\n', str(y/speed*60)+'\n', str(target-2)+'\n'])
-    #
-    #
-    # for index in indices:
-    #     time_to_fly = float(contents[index+4])
-    #     speed = 10
-    #     start = np.asfarray(contents[index+2].split(' '))
-    #
-    #     points_coordinate = np.array([start])
-    #
-    #     end = np.array([np.asfarray(contents[index+3].split(' '))])
-    #
-    #     num_points = int(np.asfarray(contents[index+1].split(' '))[0])
-    #     for i in range(num_points):
-    #         points_coordinate = np.append(points_coordinate, np.array([np.asfarray(contents[index + 5 + i].split(' '))]),
-    #                                       axis=0)
-    #     points_coordinate = np.append(points_coordinate, end, axis=0)
-    #     num_points += 2
-    #
-    #     distance = time_to_fly * speed
-    #
-    #     # print("Координаты вершин:\n", points_coordinate, "\n")
-    #
-    #     # вычисление матрицы расстояний между вершин
-    #     distance_matrix = spatial.distance.cdist(points_coordinate, points_coordinate, metric='euclidean')
-    #
-    #     start_time = time.time()  # сохранение времени начала выполнения
-    #     x, y, target = main(30, 15, i+1)  # выполнение кода
-    #     print("length: ", y, "target:", target, "\n")
-    #
-    #     f.writelines(contents[indices[indices.index(index)]:indices[indices.index(index)+1]])
-    #     f.writelines(['AntColony\n', str(y / speed * 60) + '\n', str(target-2) + '\n'])
-    # f.writelines("----------\n")
-    # f.close()
+    #читання з файлу
+    with open("write-new.txt", "r") as file:
+        contents = file.readlines()
+        indices = [i for i, x in enumerate(contents) if x == "----------\n"]
+        # indices.pop(-1)
+
+    time_to_fly = float(contents[3])
+    speed = 10
+    start = np.asfarray(contents[1].split(' '))
+    points_coordinate = np.array([start])
+    end = np.array([np.asfarray(contents[2].split(' '))])
+    num_points = int(np.asfarray(contents[0].split(' '))[0])
+    for i in range(num_points):
+        points_coordinate = np.append(points_coordinate, np.array([np.asfarray(contents[4 + i].split(' '))]),
+                                      axis=0)
+    points_coordinate = np.append(points_coordinate, end, axis=0)
+    num_points += 2
+    distance = time_to_fly * speed
+    # print("Координаты вершин:\n", points_coordinate, "\n")
+    # вычисление матрицы расстояний между вершин
+    distance_matrix = spatial.distance.cdist(points_coordinate, points_coordinate, metric='euclidean')
+
+    start_time = time.time()  # сохранение времени начала выполнения
+    x, y, target = main(30, 100, i+1)  # выполнение кода
+    print("length: ", y, "target:", target, "\n")
+
+    f = open("rez6_100.txt", "w")
+    f.writelines("----------\n")
+    f.writelines(contents[:indices[0]])
+    f.writelines(['AntColony\n', str(y/speed*60)+'\n', str(target-2)+'\n'])
 
 
-    for i in range(1):
+    for index in indices:
+        time_to_fly = float(contents[index+4])
+        speed = 10
+        start = np.asfarray(contents[index+2].split(' '))
+
+        points_coordinate = np.array([start])
+
+        end = np.array([np.asfarray(contents[index+3].split(' '))])
+
+        num_points = int(np.asfarray(contents[index+1].split(' '))[0])
+        for i in range(num_points):
+            points_coordinate = np.append(points_coordinate, np.array([np.asfarray(contents[index + 5 + i].split(' '))]),
+                                          axis=0)
+        points_coordinate = np.append(points_coordinate, end, axis=0)
+        num_points += 2
+
+        distance = time_to_fly * speed
+
+        # print("Координаты вершин:\n", points_coordinate, "\n")
+
+        # вычисление матрицы расстояний между вершин
+        distance_matrix = spatial.distance.cdist(points_coordinate, points_coordinate, metric='euclidean')
+
         start_time = time.time()  # сохранение времени начала выполнения
-        x,y,length=main(25,15,i)  # выполнение кода
-        print("length: ",y,"target:", length, "\n")
+        x, y, target = main(30, 100, i+1)  # выполнение кода
+        print("length: ", y, "target:", target, "\n")
+
+        f.writelines(contents[indices[indices.index(index)]:indices[indices.index(index)+1]])
+        f.writelines(['AntColony\n', str(y / speed * 60) + '\n', str(target-2) + '\n'])
+    f.writelines("----------\n")
+    f.close()
+
+
+    # for i in range(1):
+    #     start_time = time.time()  # сохранение времени начала выполнения
+    #     x,y,length=main(30,15,i)  # выполнение кода
+    #     print("length: ",y,"target:", length, "\n")
 
 
     # #=================== визначення опт критеріїв ітерацій і мурах =====================
